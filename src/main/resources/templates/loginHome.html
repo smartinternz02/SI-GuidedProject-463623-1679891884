@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoginHome</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    
+   <style>
+
+#loghome .logfprices,.logdprices,.logroutes,.logcountries,.logcurrencies,.logplaces{
+    display: inline-flex;
+    text-decoration: none;
+    border: 2px solid white;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    font-family: Helvetica;
+    font-weight: 700;
+    color:white;
+    background-color: #332d2d;
+    height: 50px;
+    width: 500px;
+    border-radius: 40px;
+}
+#loghome{
+    margin-top: 100px;
+    margin-left: 480px;
+    position: absolute;
+}
+
+.card{
+    margin: 15px;
+}
+
+   </style>
+
+
+
+</head>
+<body>
+  <img class="d-block w-100" src="https://cdn.dribbble.com/users/1268095/screenshots/4368448/takeoff.gif" width="800" height="713"  alt="India" style="position:absolute;filter:blur(8px);-webkit-filter:blur(8px)" >
+    <div class="loghome" id="loghome">
+        
+    <a href="/fprice" class="logfprices">Flight Prices</a>
+    <br>
+    <a href="/dprice" class="logdprices">Flight Dates</a>
+    <br>
+    <a href="/routes" class="logroutes">Flight Routes</a>
+    <br>
+    <a href="/cntrys" class="logcountries">Countries</a>
+    <br>
+    <a href="/currs" class="logcurrencies">Currencies</a>
+    <br>
+    <a href="/places" class="logplaces">Places</a>
+
+    <!-- https://cdn.dribbble.com/users/4908/screenshots/1931609/round-trip-ticket.gif -->
+
+    </div>
+
+    <!-- <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Flight Prices</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Find Prices</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Flight Dates</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Find Dates</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Flight Routes</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Find Routes</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Places to Explore</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Find Places</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Countries Guides</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Find Countries</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Currencies Guides</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Find Currencies</a>
+        </div>
+      </div> -->
+    
+
+</body>
+</html>

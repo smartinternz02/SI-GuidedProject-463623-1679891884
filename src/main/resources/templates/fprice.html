@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Prices</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <style>
+
+.ftables .table{
+    float: left;
+}
+.ftables{
+    
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+    margin-left: 313px;
+}
+
+#fprices .f-source,.f-destination,.f-date{
+
+margin-top: 30px;
+display: flex;
+font-family: Helvetica;
+font-weight: 700;
+font-size: 14px;
+margin-left: 520px;
+}
+
+#fprices .f-source-address,.f-destination-address,.f-start-date{
+
+padding-top: 5px;
+height: 40px;
+width: 380px;
+display: flex;
+margin-top: 5px;
+border: 1px solid rgba(0, 0, 0, 0.692);
+margin-left: 520px;
+}
+
+#fprices .fpsubmit{
+border: 2px solid rgb(255, 238, 238);
+margin-top: 50px;
+margin-left: 620px;
+padding: 18px 22px;
+border-radius: 40px;
+font-family: Helvetica;
+font-size: 14px;
+font-weight: 700;
+background-color: rgba(8, 218, 68, 0.938);
+}
+
+#fprices .f-source-address,.test4::-webkit-input-placeholder{
+padding-left: 12px;
+}
+#fprices .f-destination-address,.test4::-webkit-input-placeholder{
+padding-left: 12px;
+}
+#fprices .f-start-date,.test4::-webkit-input-placeholder{
+padding-left: 12px;
+}
+
+#fprices{
+margin-top: 100px;
+}
+.apierror{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: -100px;
+    font-size: 20px;
+    font-weight: 600;
+}
+.disperror{
+    font-size: 22px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    margin-left: -100px;
+}
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light "  style="background-color: #bfc2c2;" >
+    
+
+        <!-- Container wrapper -->
+        <div class="container">
+          <!-- Navbar brand -->
+          <a class="navbar-brand me-2" href="/">
+            <img
+              src="https://tse1.mm.bing.net/th?id=OIP.XNl__t4pbd-z1mdVzyXvQAHaGl&pid=Api&P=0"
+              height="16"
+              alt="MDB Logo"
+              loading="lazy"
+              style="margin-top: -1px;"
+            />
+          </a>
+      
+          <!-- Toggle button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarButtonsExample"
+            aria-controls="navbarButtonsExample"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+      
+          <!-- Collapsible wrapper -->
+          <div class="collapse navbar-collapse" id="navbarButtonsExample">
+            <!-- Left links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <!-- <a class="nav-link" href="#">Home</a> -->
+                <a href="/dprice" class="btn btn-link px-3 me-2" style="text-decoration: none;font-weight: 600;" >
+                    Flight Dates
+                  </a>
+              </li>
+              <li class="nav-item">
+                <!-- <a class="nav-link" href="#">Services</a> -->
+                <a href="/routes" class="btn btn-link px-3 me-2" style="text-decoration: none;font-weight: 600;" >
+                    Flight Routes
+                  </a>
+              </li>
+              <li class="nav-item">
+                <!-- <a class="nav-link" href="#">Plans</a> -->
+                <a href="/cntrys" class="btn btn-link px-3 me-2" style="text-decoration: none;font-weight: 600;" >
+                     Countries
+                  </a>
+              </li>
+              <li class="nav-item">
+                <!-- <a class="nav-link" href="#">Services</a> -->
+                <a href="/currs" class="btn btn-link px-3 me-2" style="text-decoration: none;font-weight: 600;" >
+                   Currencies
+                  </a>
+              </li>
+              <li class="nav-item">
+                <!-- <a class="nav-link" href="#">About Us</a> -->
+                <a href="/places" class="btn btn-link px-3 me-2" style="text-decoration: none;font-weight: 600;" >
+                    Places
+                  </a>
+              </li>
+            </ul>
+            <!-- Left links -->
+      
+           
+          </div>
+          <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+      </nav>
+
+    <form action="#" method="post" id="fprices" th:action="@{/fprice}" th:object="${userip}" >
+        <label for="f-source" id="f-source" class="f-source">Enter source</label>
+        <input type="text" name="f-source" th:field="*{origin}" id="f-source-address" class="f-source-address" placeholder="Enter source address" >
+
+        <label for="f-destination" id="f-destination" class="f-destination">Enter destination</label>
+        <input type="text" name="f-destination" id="f-destination-address" th:field="*{dest}" class="f-destination-address" placeholder="Enter destination address" >
+
+        <label for="f-date" id="f-date" class="f-date">Enter start date </label>
+        <input type="date" name="source" id="f-start-date" th:field="*{outDate}" class="f-start-date">
+
+        <input type="submit" value="Get Flight Prices" class="fpsubmit" id="fpsubmit">
+    </form>
+    
+    <div class="apierror" id="apierror"><p th:text="${message}" class="apistatus" ></p></div>
+
+    <div class="disperror" id="disperror"><p th:text="${msg}" class="showerror"></p></div>
+
+    <div class="ftables">
+
+        <table class="table" >
+            <thead class="thead-dark">
+                 <tr>
+                     <th>Origin</th>
+                 </tr>
+           </thead>
+           <tbody>
+                 <tr th:each="org:${originlist}">
+                     <td th:text="${org}"></td>
+                </tr>
+           </tbody>
+     </table>
+      <table class="table" >
+            <thead class="thead-dark">
+                 <tr>
+                     <th>Destination</th>
+                 </tr>
+           </thead>
+           <tbody>
+                 <tr th:each="dlst:${destinationlist}">
+                     <td th:text="${dlst}"></td>
+                </tr>
+            </tbody>
+     </table>
+      <table class="table" >
+            <thead class="thead-dark">
+                 <tr>
+                     <th>Price</th>
+                 </tr>
+           </thead>
+           <tbody>
+                 <tr th:each="pr:${pricelist}">
+                     <td th:text="${pr}"></td>
+                </tr>
+           </tbody>
+     </table>
+
+    </div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <style>
+
+
+#routes .rts-source,.rts-destination,.rts-sdate,.rts-currency,.rts-ccode{
+    margin-top: 30px;
+    display: flex;
+    font-family: Helvetica;
+    font-weight: 700;
+    font-size: 14px;
+    margin-left: 520px;
+}
+
+ #routes .rts-source-address,.rts-destination-address,.rts-start-date,.rts-country-currency,.rts-country-code{
+
+    padding-top: 5px;
+    height: 40px;
+    width: 380px;
+    display: flex;
+    margin-top: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.692);
+    margin-left: 520px;
+}
+
+#routes .rts-submit{
+    border: 2px solid rgb(255, 238, 238);
+    margin-top: 50px;
+    margin-left: 620px;
+    padding: 18px 18px;
+    border-radius: 40px;
+    font-family: Helvetica;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: rgba(8, 218, 68, 0.938);
+}
+
+#routes .rts-source-address,.test5::-webkit-input-placeholder{
+    padding-left: 12px;
+}
+#routes .rts-destination-address,.test5::-webkit-input-placeholder{
+    padding-left: 12px;
+}
+#routes .rts-start-date,.test5::-webkit-input-placeholder{
+    padding-left: 12px;
+}
+#routes .rts-country-currency,.test5::-webkit-input-placeholder{
+    padding-left: 12px;
+}
+#routes .rts-country-code,.test5::-webkit-input-placeholder{
+    padding-left: 12px;
+}
+
+
+#routes{
+    margin-top: 100px;
+}
+
+    </style>
+    <title>Routes</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light "  style="background-color: #bfc2c2;" >
+    
+
+        <!-- Container wrapper -->
+        <div class="container">
+          <!-- Navbar brand -->
+          <a class="navbar-brand me-2" href="/">
+            <img
+              src="https://tse1.mm.bing.net/th?id=OIP.XNl__t4pbd-z1mdVzyXvQAHaGl&pid=Api&P=0"
+              height="16"
+              alt="MDB Logo"
+              loading="lazy"
+              style="margin-top: -1px;"
+            />
+          </a>
+      
+          <!-- Toggle button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarButtonsExample"
+            aria-controls="navbarButtonsExample"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+      
+          <!-- Collapsible wrapper -->
+          <div class="collapse navbar-collapse" id="navbarButtonsExample">
+            <!-- Left links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <!-- <a class="nav-link" href="#">Home</a> -->
+                <a href="/dprice" class="btn btn-link px-3 me-2" style="text-decoration: none;font-weight: 600;" >
+                    Flight Dates
+                  </a>
+              </li>
+              <li class="nav-item">
+                <!-- <a class="nav-link" href="#">Services</a> -->
+                <a href="/fprice" class="btn btn-link px-3 me-2" style="text-decoration: none;font-weight: 600;" >
+                    Flight Prices
+                  </a>
+              </li>
+              <li class="nav-item">
+                <!-- <a class="nav-link" href="#">Plans</a> -->
+                <a href="/cntrys" class="btn btn-link px-3 me-2" style="text-decoration: none;font-weight: 600;" >
+                     Countries
+                  </a>
+              </li>
+              <li class="nav-item">
+                <!-- <a class="nav-link" href="#">Services</a> -->
+                <a href="/currs" class="btn btn-link px-3 me-2" style="text-decoration: none;font-weight: 600;" >
+                   Currencies
+                  </a>
+              </li>
+              <li class="nav-item">
+                <!-- <a class="nav-link" href="#">About Us</a> -->
+                <a href="/places" class="btn btn-link px-3 me-2" style="text-decoration: none;font-weight: 600;" >
+                    Places
+                  </a>
+              </li>
+            </ul>
+            <!-- Left links -->
+      
+           
+          </div>
+          <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+      </nav>
+
+
+  <form action="#" th:action="@{/routes}" th:object="${userip}" method="post" id="routes">
+
+    <label for="rts-source" id="rts-source" class="rts-source">Enter Source</label>
+    <input type="text" name="rts-source"  th:field="*{origin}" id="rts-source-address" class="rts-source-address" placeholder="Enter source address">
+
+    <label for="rts-destination" id="rts-destination" class="rts-destination">Enter Destination</label>
+    <input type="text" name="rts-destination" th:field="*{dest}" id="rts-destination-address" class="rts-destination-address"  placeholder="Enter destination address">
+
+    <label for="rts-date" id="rts-sdate" class="rts-sdate">Enter start date</label>
+    <input type="date" th:field="*{outDate}" name="rts-date" id="rts-start-date"   class="rts-start-date">
+
+    <label for="rts-retdate" id="rts-currency" class="rts-currency">Enter currency</label>
+    <input type="text" name="rts-curency" th:field="*{currency}" id="rts-country-currency" class="rts-country-currency" placeholder="Enter country currency">
+
+    <label for="rts-ccode" id="rts-ccode" class="rts-ccode">Enter country code </label>
+    <input type="text" name="rts-ccode" th:field="*{country}" id="rts-country-code"  class="rts-country-code" placeholder="Enter country code">
+
+    
+   
+    <input type="submit" value="Get Flights" class="rts-submit">
+  </form>
+  
+ 
+
+ 
+  
+</body>
+</html>

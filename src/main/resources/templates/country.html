@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counties</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <style>
+    .country-details{
+        display:inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 100px;
+        border: 2px solid white;
+        text-decoration: none;
+        margin-left: 640px;
+        padding: 18px 18px;
+        background-color:#3a94c0;
+        color: white;
+        font-size: 20px;
+        font-weight: 700;
+        border-radius: 10px;
+      }
+
+      .inside-countries{
+        float: left;
+        display: flex;
+        width: 500px;
+        justify-content: center;
+        align-items: center;
+        margin-left: 555px;
+        margin-top: 50px;
+      }
+
+      
+    </style>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light "  style="background-color: #bfc2c2;" >
+    
+
+        <!-- Container wrapper -->
+        <div class="container">
+          <!-- Navbar brand -->
+          <a class="navbar-brand me-2" href="/">
+            <img
+              src="https://tse1.mm.bing.net/th?id=OIP.XNl__t4pbd-z1mdVzyXvQAHaGl&pid=Api&P=0"
+              height="16"
+              alt="MDB Logo"
+              loading="lazy"
+              style="margin-top: -1px;"
+            />
+          </a>
+      
+          <!-- Toggle button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarButtonsExample"
+            aria-controls="navbarButtonsExample"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+      
+          <!-- Collapsible wrapper -->
+          <div class="collapse navbar-collapse" id="navbarButtonsExample">
+            <!-- Left links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <!-- <a class="nav-link" href="#">Home</a> -->
+                <a href="/fprice" class="btn btn-link px-3 me-2" style="text-decoration: none;font-weight: 600;" >
+                    Flight Prices
+                  </a>
+              </li>
+              <li class="nav-item">
+                <!-- <a class="nav-link" href="#">Services</a> -->
+                <a href="/routes" class="btn btn-link px-3 me-2" style="text-decoration: none;font-weight: 600;" >
+                    Flight Routes
+                  </a>
+              </li>
+              <li class="nav-item">
+                <!-- <a class="nav-link" href="#">Plans</a> -->
+                <a href="/dprice" class="btn btn-link px-3 me-2" style="text-decoration: none;font-weight: 600;" >
+                     Flight Dates
+                  </a>
+              </li>
+              <li class="nav-item">
+                <!-- <a class="nav-link" href="#">Services</a> -->
+                <a href="/currs" class="btn btn-link px-3 me-2" style="text-decoration: none;font-weight: 600;" >
+                   Currencies
+                  </a>
+              </li>
+              <li class="nav-item">
+                <!-- <a class="nav-link" href="#">About Us</a> -->
+                <a href="/places" class="btn btn-link px-3 me-2" style="text-decoration: none;font-weight: 600;" >
+                    Places
+                  </a>
+              </li>
+            </ul>
+            <!-- Left links -->
+      
+           
+          </div>
+          <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+      </nav>
+
+
+    <form action="#" method="post" id="fprices" th:action="@{/cntrys}" >
+        <input type="submit" value="View Countries" class="country-details" id="country-details">
+    </form>
+
+	<div class="inside-countries">
+     <table class="table" >
+    <thead class="thead-dark">
+        <tr>
+            <th>City Name</th>
+        </tr>
+    </thead>
+    <tbody>
+       <tr th:each="cty: ${countrylist}">
+                <td th:text="${cty}"></td>
+       </tr>
+    </tbody>
+</table>
+
+<table class="table" >
+    <thead class="thead-dark">
+        <tr>
+            <th>City Region</th>
+        </tr>
+    </thead>
+    <tbody>
+       <tr th:each="cde: ${codelist}">
+                <td th:text="${cde}"></td>
+       </tr>
+    </tbody>
+</table>
+	</div>
+</body>
+</html>

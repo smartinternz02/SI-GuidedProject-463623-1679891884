@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+
+    
+
+</head>
+<body>
+
+    <!-- <img class="signup-background" src="FlightAware_logo.jpg" alt="aria-block" height="60px" width="150px">
+
+    <div class="disperror" id="disperror"><p th:text="${msg}" class="showerror"></p></div>
+
+    <form action="#" method="post" id="signup-form" th:action="@{/Register}" th:object="${user}">
+
+        
+
+        <label for="Email" class="mail">What's your email?</label>
+        <div class="textbox1"><input type="text" th:field="*{emailId}" name="Email" id="email" class="email" placeholder="Enter your email."></div>
+
+        <label for="Password" class="crpass">Create a password</label>
+        <div class="textbox2"><input type="text" th:field="*{pass}" name="Password" id="create-pass" class="create-pass" placeholder="Enter password."></div>
+
+        <label for="Confirm" class="copass">Confirm password</label>
+        <div class="textbox3"><input type="text" th:field="*{conpass}"  name="Confirm" id="conf-pass" class="conf-pass" placeholder="Confirm password."></div>
+
+
+        <label for="Name" class="cruser">What should we call you?</label>
+        <div class="textbox4"><input type="text" th:field="*{name}" name="Name" id="prof-name" class="prof-name" placeholder="Enter a profile name."></div>
+        
+        <div class="alreadyauser">
+            <a href="/Login" class="aluser">Already a user?Login</a>
+        </div>
+        <button type="submit" class="signup-submit">Submit</button>
+    </form> -->
+
+    <section class="vh-100" style="background-color:#eee;height:86vh" >
+        <div class="container h-100"  style="height:86vh" >
+          <div class="row d-flex justify-content-center align-items-center h-86" style="height:86vh">
+            <div class="col-lg-12 col-xl-11">
+              <div class="card text-black" style="border-radius: 25px;">
+                <div class="card-body p-md-5">
+                  <div class="row justify-content-center">
+                    <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+      
+                      <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                      <p th:text="${msg}" class="mb-2" style="margin-left:80px"></p>
+      
+                      <form class="mx-1 mx-md-4" style="height:69vh"  action="#" method="post" id="signup-form" th:action="@{/Register}" th:object="${user}" >
+      
+                        <div class="d-flex flex-row align-items-center mb-4">
+                          <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                          <div class="input-group mb-3">
+                            <span class="input-group-text">@</span>
+                            <div class="form-floating">
+                              <input type="text" th:field="*{name}" class="form-control" id="floatingInputGroup1" placeholder="Username">
+                              <label for="floatingInputGroup1">Name</label>
+                            </div>
+                          </div>
+                        </div>
+      
+                        <div class="d-flex flex-row align-items-center mb-4">
+                          <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                          <div class="form-floating mb-3" style="width:500px" >
+                            <input type="email" class="form-control" th:field="*{emailId}" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">Email address</label>
+                          </div>
+                        </div>
+      
+                        <div class="d-flex flex-row align-items-center mb-4">
+                          <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                          <div class="form-floating" style="width:500px" >
+                            <input type="password" th:field="*{pass}" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Password</label>
+                          </div>
+                        </div>
+      
+                        <div class="d-flex flex-row align-items-center mb-4">
+                          <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                          <div class="form-floating" style="width:500px" >
+                            <input type="password" th:field="*{conpass}" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Repeat Your Password</label>
+                          </div>
+                        </div>
+      
+                        <div class="form-check d-flex justify-content-center mb-5">
+                          <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
+                          <label class="form-check-label" for="form2Example3">
+                            I agree all statements in <a href="#!">Terms of service</a>
+                          </label>
+                        </div>
+      
+                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-2" >
+                          <button type="submit" class="btn btn-primary btn-lg">Register</button>
+  
+                         
+                        </div>
+                        <p class="small fw-bold mt-2 pt-1 mb-0" style="margin-left:130px" >Already a user? <a href="/Login"
+                          class="link-danger"  >Login</a></p>
+      
+                      </form>
+      
+                    </div>
+                    <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+      
+                      <img src="https://cdn.dribbble.com/users/967990/screenshots/2706145/letadlo_dribbble.gif"
+                        class="img-fluid" alt="Sample image">
+      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+</body>
+</html>
